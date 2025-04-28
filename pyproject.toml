@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "language learning konstantina"
+version = "0.1.0"
+description = "A simple project for language learning"
+authors = ["konstantina"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+streamlit = "^1.42.1"
+poetry-plugin-dotenv = "^2.7.3"
+transformers = "^4.49.0"
+torch = "^2.6.0"
+
+# The following dependencies are for experimentation and development.
+# Code using them is not always committed, but they may be required later.
+
+requests = "^2.32.3"
+ipywidgets = "^8.1.5"
+ipykernel = "6.29.5"
+google-genai = "^1.2.0"
+accelerate = "^1.4.0"
+bitsandbytes = "^0.45.3"
+vllm = "^0.8.2"
+openai = "^1.72.0"
+langchain = "^0.3.23"
+langchain-community = "^0.3.21"
+ollama = "^0.4.7"
+langchain-ollama = "^0.3.1"
+
+[tool.poetry.group.dev.dependencies]
+# Add development dependencies here (e.g., testing libraries, linters, etc.)
+
+[tool.dotenv]
+ignore = "false"
+location = ".env"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
