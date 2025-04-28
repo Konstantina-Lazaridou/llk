@@ -57,5 +57,5 @@ poetry run -vvv streamlit run app.py
 
 The app would look like:
 
-<img src="images/app_screenshot_1.png" alt="Word selection" width="70%" />
-<img src="images/app_screenshot_2.png" alt="Word translations" width="70%" />
+<img src="images/app_screenshot_1.png" alt="Word selection" width="85%" />
+<img src="images/app_screenshot_2.png" alt="Word translations" width="85%" />
