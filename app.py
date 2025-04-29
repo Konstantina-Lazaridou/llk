@@ -151,7 +151,8 @@ async def app(word_type: str, language: str, language_level: str, textgen_pipeli
     # st.write(st.session_state.meanings)
     with st.expander("Open/close meanings list"):
         for word, meaning in st.session_state.meanings.items():
-            st.markdown(f"**{word.capitalize()}**: {meaning}")
+            if word in st.session_state.unknown_words:
+                st.markdown(f"**{word.capitalize()}**: {meaning}")
 
     st.markdown("<div style='width: 100%; height: 40px;'></div>", unsafe_allow_html=True)
 
