@@ -18,34 +18,24 @@ export POETRY_PLUGIN_DOTENV_LOCATION=.env
 
 ## Prerequisites
 
-The app assumes there is a `words.json` with the input words and a `vocabulary.json` for building the user's vocabulary.
-For example, with regards to driving a car, on app start the `words.json` for learning German would look like:
-
-```json
-{
-  "driving": [
-    "abbiegen",
-    "...",
-    "zur\u00fccksetzen"
-  ]
-}
-```
-
-and `vocabulary.json` like:
-
+The app assumes the input data for building the user's vocabulary exists and it is stored in `vocabulary.json`.
+For example, with regards to driving a car and learning German, on app start the file could look like:
 ```json
 {
   "driving": {
     "known": [
       "abbiegen",
-      "...",
-      "zur\u00fccksetzen"
+      "halten",
+      "kuppeln",
+      "rasen",
+      "vermieten"
     ],
     "unknown": [
     ]
   }
 }
 ```
+`known` contains the presumably known words that belong to the user's language level and `unknown` will be gradually filled with the words the user selects to learn or recap.
 
 ## Run
 
