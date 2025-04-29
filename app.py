@@ -52,7 +52,7 @@ async def app(word_type: str, language: str, language_level: str, textgen_pipeli
         vocabulary = json.load(f)
     if not vocabulary:
         message = "Error: vocabulary not found. Cannot start the app."
-        st.write(message) 
+        st.write(message)
         st.stop()  # sys.exit(1) was reloading the app
     current_vocabulary = vocabulary[word_type] if word_type in vocabulary else None
     if not current_vocabulary:
@@ -61,10 +61,13 @@ async def app(word_type: str, language: str, language_level: str, textgen_pipeli
         st.stop()
     
     # Load word meanings file
-
-    with open("meanings.json", "r") as f:
-        meanings = json.load(f)
-        meanings = OrderedDict(sorted(meanings.items()))
+    
+    try:
+        with open("meanings.json", "r") as f:
+            meanings = json.load(f)
+    except FileNotFoundError:
+        meanings = {}
+    #meanings = OrderedDict(sorted(meanings.items()))
     
     # Initialize words and meanings if they don't exist yet in this session state
 
