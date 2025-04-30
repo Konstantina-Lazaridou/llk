@@ -52,5 +52,5 @@ htmlcov/
 Thumbs.db
 
 # Custom
-.json
-.ipynb
+*.json
+*.ipynb
