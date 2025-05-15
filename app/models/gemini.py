@@ -1,15 +1,19 @@
 from langchain.llms import BaseLLM
 from google import genai
-from typing import List, Dict, Any
+import os
+from typing import List, Dict, Any, Optional
 
 class GeminiLLM(BaseLLM):
     
-    def __init__(self, api_key: str, model: str = "gemini-2.0-flash"):
-        self.api_key = api_key
-        self.model = model
-        self.client = genai.Client(api_key=self.api_key)
+    api_key: str = os.environ["GOOGLE_AI_STUDIO_API_KEY"]
+    model: str = "gemini-2.0-flash"
+    client: genai.Client = None
 
-    def _call(self, prompt: str) -> str:
+    def __init__(self, **data):
+        super().__init__(**data)
+        object.__setattr__(self, 'client', genai.Client(api_key=self.api_key))
+
+    def _generate(self, prompt: str) -> str:
         retries = 2
         for _ in range(retries):
             response = self.client.models.generate_content(model=self.model, contents=prompt)
