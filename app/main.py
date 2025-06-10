@@ -1,5 +1,9 @@
 import os
-from chains.base_chain import base_chain
+from chains.seed_chain import seed_chain, fetch_seed_words
+from langchain.globals import set_verbose
+from langchain.globals import set_debug
+# set_debug(True)
+# set_verbose(True)
 
 def main() -> None:
 
@@ -8,10 +12,17 @@ def main() -> None:
     language_level = os.environ["LANGUAGE_LEVEL"]
     word_type = os.environ["WORD_TYPE"]
     word_amount = os.environ["WORD_AMOUNT"]
-
-    chain = base_chain(prompt_template_file="app/prompts/new_words.txt")
+    seed_prompt = os.environ["SEED_PROMPT"]
     
-    # Generate new words
+    # Generate seed words for user's language level
+    seed_words = fetch_seed_words(
+        chain=seed_chain(prompt_template_file=seed_prompt),
+        language=language,
+        language_level=language_level,
+        word_type=word_type,
+        word_amount=word_amount
+    )
+    print(f"Seed words generated: {seed_words}")
     
     # Initialize user vocabulary
 
