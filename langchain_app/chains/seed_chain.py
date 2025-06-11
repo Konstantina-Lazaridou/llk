@@ -2,7 +2,7 @@ from langchain.prompts import PromptTemplate
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.runnables.base import RunnableSequence
 from langchain_core.output_parsers import StrOutputParser
-from models.gemini import get_gemini_model_client
+from langchain_app.models.gemini import get_gemini_model_client
 import json
 from typing import List
 import ast
