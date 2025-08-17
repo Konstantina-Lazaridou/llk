@@ -8,7 +8,7 @@ from typing import List
 import ast
 
 
-def seed_chain(prompt_template_file:str, model:BaseChatModel = None) -> RunnableSequence:
+def create_seed_chain(prompt_template_file:str, model:BaseChatModel = None) -> RunnableSequence:
 
     # Get prompt template for seed word generation
     with open(prompt_template_file, "r") as file:
@@ -24,7 +24,7 @@ def seed_chain(prompt_template_file:str, model:BaseChatModel = None) -> Runnable
         
     return prompt_template | model.with_retry(retry_if_exception_type=(ValueError, KeyError, SyntaxError), stop_after_attempt=2) | StrOutputParser()
 
-def fetch_seed_words(chain: RunnableSequence, word_type:str, language:str, language_level:str, word_amount:int) -> List[str]:
+def fetch_seed_words(chain: RunnableSequence, language:str, language_level:str, word_amount:int, word_type:str) -> List[str]:
     
     response = chain.invoke(input={
         "language": language,

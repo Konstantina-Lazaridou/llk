@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch, mock_open, MagicMock
-from langchain_app.chains.seed_chain import seed_chain
+from langchain_app.chains.seed_chain import create_seed_chain
 
 @pytest.mark.parametrize("model_passed", [None, MagicMock()])
 @patch("langchain_app.chains.seed_chain.StrOutputParser")
@@ -23,7 +23,7 @@ def test_seed_chain_model_variants(mock_file, mock_prompt_template, mock_get_mod
     mock_str_output_parser.return_value = MagicMock()
 
     # Call the function under test
-    chain = seed_chain("dummy_template.txt", model=model_passed)
+    chain = create_seed_chain("dummy_template.txt", model=model_passed)
     
     # Assert the dummy file was opened in the function under test
     mock_file.assert_called_once_with("dummy_template.txt", "r")
