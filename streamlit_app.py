@@ -1,5 +1,5 @@
 from __future__ import annotations
-import streamlit_app as st
+import streamlit as st
 st.set_page_config(layout="wide")
 from streamlit.runtime.state import SessionStateProxy
 import json
