@@ -24,13 +24,16 @@ accelerate = "^1.4.0"
 bitsandbytes = "^0.45.3"
 vllm = "^0.8.2"
 openai = "^1.72.0"
+ollama = "^0.4.7"
 langchain = "^0.3.23"
 langchain-community = "^0.3.21"
-ollama = "^0.4.7"
 langchain-ollama = "^0.3.1"
+langchain-core = "^0.3.64"
+langchain-google-genai = "^2.1.5"
 
 [tool.poetry.group.dev.dependencies]
 # Add development dependencies here (e.g., testing libraries, linters, etc.)
+pytest = "8.4.0"
 
 [tool.dotenv]
 ignore = "false"

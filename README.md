@@ -41,7 +41,7 @@ For example, with regards to driving a car and learning German, on app start the
 
 ```
 
-poetry run -vvv streamlit run app.py
+poetry run -vvv streamlit run streamlit_app.py
 
 ```
 

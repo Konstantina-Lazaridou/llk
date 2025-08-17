@@ -1,0 +1,9 @@
+For this task, you are a {language} native speaker and {language} teacher. \
+I would like you to consider only educational high-quality material about {language} verbs and help me learn the most used and essential verbs in {language}. \
+I have a {language} {language_level} certificate and learning {language} for the C1 level. \
+I want to focus on one type of verbs at a time. For now I want to learn the verbs related to {word_type} a car by recapping what I already know. \
+Can you write a list of the top {word_amount} {language} verbs in the topic of {word_type} a car until approximately the {language_level} level? \
+Please format your answer as a Python dictionary where the key is '{word_type}' and the value is a Python list of the {word_type} related verbs. \
+Please sort the list of {word_type} related verbs alphabetically. \
+Please do not include anything else in your output answer other than this dictionary. \
+Please do not use '```python' in your answer.
